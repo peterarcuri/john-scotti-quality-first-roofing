@@ -1,29 +1,44 @@
 // app/page.tsx
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-
-
-export const metadata: Metadata = {
-  title: 'John Scotti | Quality First Roofing Citrus County, FL',
-  description: 'Top-rated roofing and home improvement by John Scotti in Citrus County, Florida. Call today for a free estimate!',
-  openGraph: {
-    title: 'John Scotti - Roofing Expert | Citrus County, FL',
-    description: 'Trusted local contractor for roofing and home improvement in Citrus County, FL.',
-    url: 'https://your-vercel-url.com',
-    type: 'website',
-  },
-}; 
+import Head from 'next/head';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
+      <Head>
+        <title>John Scotti | Citrus County Roofing Specialist</title>
+        <meta name="description" content="Get a free quote from John Scotti of Quality First Roofing, LLC. Trusted roofing & home improvement services in Citrus County, Florida." />
+        <meta name="robots" content="index, follow" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Quality First Roofing, LLC",
+            "image": "https://qualityfirstroofingllc.com/images/logo.png",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Citrus County",
+              "addressRegion": "FL",
+              "postalCode": "34442",
+              "addressCountry": "US"
+            },
+            "url": "https://qualityfirstroofingllc.com",
+            "telephone": "+1-352-123-4567",
+            "sameAs": [
+              "https://www.linkedin.com/in/john-scotti-72849012/",
+              "https://www.facebook.com/search/top?q=quality%20first%20roof%20specialist%20john%20scotti"
+            ]
+          })
+        }} />
+      </Head>
+
       <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-20 px-6 text-center">
-        <Image src="/johnScottiProfilePic.jpg" alt="John Scotti Profile Picture" width={200} height={200} className="mx-auto mb-4 rounded-full" />
+      <Image src="/johnScottiProfilePic.jpg" alt="John Scotti Profile Picture" width={200} height={200} className="mx-auto mb-4 rounded-full" />
         <h1 className="text-4xl md:text-5xl font-bold mb-4">John Scotti – Citrus County's Trusted Roofing & Home Improvement Specialist</h1>
         <p className="text-xl mb-6">In partnership with Quality First Roofing, LLC</p>
         <Link href="#contact" className="bg-yellow-400 text-black font-semibold py-3 px-6 rounded shadow-lg hover:bg-yellow-500">
-            Get a Free Estimate
+           Get a Free Estimate
         </Link>
       </section>
 
@@ -68,7 +83,7 @@ export default function Home() {
         <div className="mt-2 text-sm">
           <Link href="https://www.linkedin.com/in/john-scotti-72849012/">LinkedIn</Link> |{' '}
           <Link href="https://qualityfirstroofingllc.com/">Main Site</Link> |{' '}
-          <Link href="https://www.facebook.com/JohnScottiQFR">Facebook</Link>
+          <Link href="https://www.facebook.com/search/top?q=quality%20first%20roof%20specialist%20john%20scotti">Facebook</Link>
         </div>
       </footer>
     </main>
