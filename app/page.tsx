@@ -1,9 +1,36 @@
 // app/page.tsx
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    const res = await fetch('/api/submit-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      router.push('/'); // Redirect to the homepage after successful submission
+    } else {
+      alert('There was an error submitting your request.');
+    }
+
+    setSubmitting(false);
+  }
+
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <Head>
