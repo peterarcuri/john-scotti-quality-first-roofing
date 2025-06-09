@@ -6,13 +6,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import Script from 'next/script';
-import { useRouter } from 'next/navigation';
 import MapComponent from '@/components/Map';
 
 
 
 export default function Home() {
-  const router = useRouter();
+  
   const [submitting, setSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
 

@@ -27,9 +27,9 @@ export default function LeadTable() {
 
         const data = await res.json();
         setLeads(data);
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error('Failed to fetch leads:', err);
-        setError(err.message);
+        setError(String(err))
       }
     };
 
