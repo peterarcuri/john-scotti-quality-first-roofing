@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-20 px-6 text-center">
       <Image src="/johnScottiProfilePic.jpg" alt="John Scotti Profile Picture" width={200} height={200} className="mx-auto mb-4 rounded-full" />
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">John Scotti – Citrus County's Trusted Roofing & Home Improvement Specialist</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">John Scotti – Citrus County&apos;s Trusted Roofing &amp; Home Improvement Specialist</h1>
         <p className="text-xl mb-6">In partnership with Quality First Roofing, LLC</p>
         <Link href="#contact" className="bg-yellow-400 text-black font-semibold py-3 px-6 rounded shadow-lg hover:bg-yellow-500">
            Get a Free Estimate
