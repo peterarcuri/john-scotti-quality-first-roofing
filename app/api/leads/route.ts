@@ -1,4 +1,6 @@
-import { auth, clerkClient } from '@clerk/nextjs/server';
+import { auth } from '@clerk/nextjs/server';
+import { clerkClient } from '@clerk/clerk-sdk-node'; // ✅ correct for server-side usage
+
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
@@ -11,8 +13,7 @@ export async function GET() {
 
   try {
     // Call clerkClient as a function, await result to get client object
-    const client = await clerkClient();
-    const user = await client.users.getUser(userId);
+    const user = await clerkClient.users.getUser(userId);
     const userEmail = user.emailAddresses[0]?.emailAddress;
 
     const allowedEmails = [
