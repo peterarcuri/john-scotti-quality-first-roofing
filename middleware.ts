@@ -1,7 +1,7 @@
 import { clerkMiddleware } from '@clerk/nextjs/server';
 
 export default clerkMiddleware({
-  proxyUrl: 'https://john-scotti-quality-first-roofing.vercel.app',
+  
 });
 
 export const config = {
