@@ -1,113 +1,100 @@
 // app/page.tsx
-'use client';
-
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head';
 import Script from 'next/script';
-import MapComponent from '@/components/Map';
+import ContactForm from '@/components/ContactForm';
+import MapClientWrapper from '@/components/MapClientWrapper';
 
+export const metadata = {
+  title: "John Scotti | Quality First Roofing | Citrus County, FL",
+  description: "Licensed roofing contractor in Citrus County, Florida. Quality First Roofing provides roof repairs, replacements & free inspections.",
+  keywords: ["roofing Citrus County", "roof repair", "roof replacement", "Lecanto FL", "John Scotti"],
+  robots: "index, follow",
+  openGraph: {
+    title: "Quality First Roofing - Lecanto FL",
+    description: "Trusted roofing expert in Citrus County. Get your free inspection today.",
+    url: "https://john-scotti-quality-first-roofing.vercel.app",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "https://qualityfirstroofingllc.com/logo.png",
+        alt: "Quality First Roofing Logo",
+        width: 600,
+        height: 400,
+      },
+    ],
+  }
+};
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  name: "Quality First Roofing, LLC",
+  image: "https://qualityfirstroofingllc.com/logo.png",
+  "@id": "https://qualityfirstroofingllc.com",
+  url: "https://qualityfirstroofingllc.com",
+  telephone: "+13524825111",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Citrus County Area",
+    addressLocality: "Citrus County",
+    addressRegion: "FL",
+    postalCode: "34450",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 28.85886015136089,
+    longitude: -82.50411363276991,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      opens: "08:00",
+      closes: "18:00"
+    }
+  ],
+  sameAs: [
+    "https://www.facebook.com/search/top?q=quality%20first%20roof%20specialist%20john%20scotti",
+    "https://www.linkedin.com/in/john-scotti-72849012/"
+  ]
+};
 
 export default function Home() {
-  
-  const [submitting, setSubmitting] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitting(true);
-  
-    const form = e.currentTarget as HTMLFormElement; // ✅ type-safe cast
-    const formData = new FormData(form);
-  
-    const data = {
-      name: formData.get('name'),
-      email: formData.get('email'),
-      phone: formData.get('phone'),
-      message: formData.get('message'),
-    };
-  
-    try {
-      const res = await fetch('/api/submit-lead', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-  
-      if (res.ok) {
-        setSuccessMessage('Thank you, a specialist will be contacting you shortly!');
-        form.reset(); // ✅ use the cast form to reset
-  
-        setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 3000);
-      } else {
-        alert('There was an error submitting your request.');
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
-      alert('There was an error submitting your request.');
-    } finally {
-      setSubmitting(false);
-    }
-  };
-  
-
   return (
     <main className="min-h-screen bg-white text-gray-900">
-      <Head>
-        <title>John Scotti | Citrus County Roofing Specialist</title>
-        <meta name="description" content="Get a free quote from John Scotti of Quality First Roofing, LLC. Trusted roofing & home improvement services in Citrus County, Florida." />
-        <meta name="robots" content="index, follow" />
-      </Head>
-
-      <Script type="application/ld+json" id="local-business-schema">
-  {JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "RoofingContractor",
-    name: "Quality First Roofing, LLC",
-    image: "https://qualityfirstroofingllc.com/logo.png",
-    "@id": "https://qualityfirstroofingllc.com",
-    url: "https://qualityfirstroofingllc.com",
-    telephone: "+13524825111",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Citrus County Area",
-      addressLocality: "Citrus County",
-      addressRegion: "FL",
-      postalCode: "34450",
-      addressCountry: "US"
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 28.85886015136089,
-      longitude: -82.50411363276991
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        opens: "08:00",
-        closes: "18:00"
-      }
-    ],
-    sameAs: [
-      "https://www.facebook.com/search/top?q=quality%20first%20roof%20specialist%20john%20scotti",
-      "https://www.linkedin.com/in/john-scotti-72849012/"
-    ]
-  })}
-</Script>
-
+      <Script
+        id="local-business-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
 
       <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-20 px-6 text-center">
-      <Image src="/johnScottiProfilePic.jpg" alt="John Scotti Profile Picture" width={200} height={200} className="mx-auto mb-4 rounded-full" />
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">John Scotti – Citrus County&apos;s Trusted Roofing &amp; Home Improvement Specialist</h1>
+        <Image
+          src="/johnScottiProfilePic.jpg"
+          alt="John Scotti Profile Picture"
+          width={200}
+          height={200}
+          className="mx-auto mb-4 rounded-full"
+        />
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          John Scotti – Citrus County&apos;s Trusted Roofing &amp; Home Improvement Specialist
+        </h1>
         <p className="text-xl mb-6">In partnership with Quality First Roofing, LLC</p>
-        <Link href="#contact" className="bg-yellow-400 text-black font-semibold py-3 px-6 rounded shadow-lg hover:bg-yellow-500">
-           Get a Free Estimate
+        <Link
+          href="#contact"
+          className="bg-yellow-400 text-black font-semibold py-3 px-6 rounded shadow-lg hover:bg-yellow-500"
+        >
+          Get a Free Estimate
         </Link>
       </section>
 
@@ -134,28 +121,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section><MapComponent /></section>
+      <section><MapClientWrapper /></section>
 
       <section id="contact" className="py-16 px-6 bg-white">
         <div className="max-w-xl mx-auto">
           <h3 className="text-2xl font-bold mb-4 text-center">Request a Free Quote</h3>
-
-          {successMessage && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center">
-              {successMessage}
-            </div>
-)}
-
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input name="name" type="text" required placeholder="Your Name" className="w-full p-3 border rounded" />
-            <input name="email" type="email" required placeholder="Your Email" className="w-full p-3 border rounded" />
-            <input name="phone" type="tel" required placeholder="Your Phone Number" className="w-full p-3 border rounded" />
-            <textarea name="message" rows={4} placeholder="How can we help?" className="w-full p-3 border rounded" />
-            <button type="submit" disabled={submitting} className="bg-blue-600 text-white py-3 px-6 rounded font-semibold hover:bg-blue-700">
-              {submitting ? 'Sending...' : 'Send Request'}
-            </button>
-          </form>
+          <ContactForm />
         </div>
       </section>
 
