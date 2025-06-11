@@ -1,11 +1,18 @@
 'use client';
 import { SignedIn, SignedOut, SignInButton, SignOutButton, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => (
-  <nav className="flex items-center justify-between p-4 bg-white shadow">
+  <nav className="flex items-center justify-between p-4 relative h-15 bg-gradient-to-r from-blue-400 to-gray-400 drop-shadow-glow">
     <Link href="/" className="text-xl font-bold text-gray-800">
-      Quality First Roofing
+    <Image
+          src="/qualityfirstroofinglogo.webp"
+          alt="Quality First Roofing Logo"
+          width={115}
+          height={115}  
+          className="drop-shadow-glow rounded-md"       
+        />
     </Link>
     <div className="flex gap-4 items-center">
       <SignedOut>

@@ -48,21 +48,53 @@ const ContactForm = () => {
   return (
     <>
       {successMessage && (
-        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center">
+        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4 text-center shadow-md">
           {successMessage}
         </div>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input name="name" type="text" required placeholder="Your Name" className="w-full p-3 border rounded" />
-        <input name="email" type="email" required placeholder="Your Email" className="w-full p-3 border rounded" />
-        <input name="phone" type="tel" required placeholder="Your Phone Number" className="w-full p-3 border rounded" />
-        <textarea name="message" rows={4} placeholder="How can we help?" className="w-full p-3 border rounded" />
-        <button type="submit" disabled={submitting} className="bg-blue-600 text-white py-3 px-6 rounded font-semibold hover:bg-blue-700">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 bg-white/20 backdrop-blur-lg shadow-2xl p-8 rounded-xl max-w-lg mx-auto"
+      >
+        <input
+          name="name"
+          type="text"
+          required
+          placeholder="Your Name"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          name="email"
+          type="email"
+          required
+          placeholder="Your Email"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          name="phone"
+          type="tel"
+          required
+          placeholder="Your Phone Number"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <textarea
+          name="message"
+          rows={4}
+          placeholder="How can we help?"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <button
+          type="submit"
+          disabled={submitting}
+          className="bg-blue-600 text-white py-3 px-6 rounded font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg"
+        >
           {submitting ? 'Sending...' : 'Send Request'}
         </button>
       </form>
     </>
   );
+  
+  
 };
 
 export default ContactForm;
