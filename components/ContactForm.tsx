@@ -54,7 +54,7 @@ const ContactForm = () => {
       )}
       <form
         onSubmit={handleSubmit}
-        className="space-y-4 bg-white/20 backdrop-blur-lg shadow-2xl p-8 rounded-xl max-w-lg mx-auto"
+        className="space-y-4 bg-blue-500/20 backdrop-blur-lg  shadow-sm shadow-blue-500 p-8 rounded-xl max-w-lg mx-auto"
       >
         <input
           name="name"
@@ -86,7 +86,7 @@ const ContactForm = () => {
         <button
           type="submit"
           disabled={submitting}
-          className="bg-blue-600 text-white py-3 px-6 rounded font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg"
+          className="bg-blue-900 text-gray-200 py-3 px-6 rounded font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-sm shadow-blue-500"
         >
           {submitting ? 'Sending...' : 'Send Request'}
         </button>

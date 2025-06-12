@@ -95,13 +95,13 @@ export default function Home() {
       height={250}
       className="mx-auto mb-4 rounded-full"
     />
-    <h1 className="text-4xl md:text-5xl font-bold mb-4">
+    <h1 className="text-4xl md:text-5xl text-gray-200 font-bold mb-4 ">
       John Scotti – Citrus County&apos;s Trusted Roofing &amp; Home Improvement Specialist
     </h1>
-    <p className="text-xl mb-6">In partnership with Quality First Roofing, LLC</p>
+    <p className="text-xl mb-6 text-gray-200">In partnership with Quality First Roofing, LLC</p>
     <Link
       href="#contact"
-      className="bg-blue-700 text-gray font-semibold py-3 px-6 rounded shadow-lg hover:bg-blue-600"
+      className="bg-blue-700 text-gray font-semibold py-3 px-6 rounded shadow-sm shadow-blue-500 hover:bg-blue-600"
     >
       Get a Free Estimate
     </Link>
@@ -118,9 +118,9 @@ export default function Home() {
   </div>
 
   {/* Content */}
-  <div className="relative max-w-4xl mx-auto text-white">
-    <h2 className="text-3xl font-bold mb-4">Why Choose John Scotti?</h2>
-    <p className="mb-4 text-lg">
+  <div className="relative max-w-4xl mx-auto text-gray-300">
+    <h2 className="text-[2.1rem] font-bold mb-4">Why Choose John Scotti?</h2>
+    <p className="mb-4 text-[1.2rem]">
       With over 20 years of experience, John Scotti is a local roofing expert providing reliable and affordable services throughout Citrus County, FL.
     </p>
     <p className="text-lg">
@@ -184,11 +184,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-blue-900 text-white text-center py-8">
+      <footer className="font-alice text-[1.7rem] bg-blue-900 text-gray-300 text-center py-8 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800 shadow-lg shadow-blue-500">
         <p>&copy; {new Date().getFullYear()} Quality First Roofing, LLC. Serving Citrus County, FL</p>
-        <div className="mt-2 text-sm">
+        <div className="text-gray-300 mt-2 text-[1.2rem]">
           <Link href="https://www.linkedin.com/in/john-scotti-72849012/">LinkedIn</Link> |{' '}
-          <Link href="https://qualityfirstroofingllc.com/">Main Site</Link> |{' '}
+          <Link href="https://qualityfirstroofingllc.com/">Quality First Roofing LLC</Link> |{' '}
           <Link href="https://www.facebook.com/search/top?q=quality%20first%20roof%20specialist%20john%20scotti">Facebook</Link>
         </div>
       </footer>

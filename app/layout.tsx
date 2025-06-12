@@ -5,7 +5,13 @@ import {
   ClerkProvider,
 } from '@clerk/nextjs';
 import Navbar from "@/components/Navbar";
+import { Alice } from 'next/font/google';
 
+const alice = Alice({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-alice',
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
+    <html lang="en" className={alice.variable}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${alice.variable} font-alice antialiased`}
       >
         <Navbar />
         {children}

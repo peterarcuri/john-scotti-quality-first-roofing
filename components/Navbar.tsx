@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Navbar = () => (
-  <nav className="flex items-center justify-between p-4 relative h-15 bg-gradient-to-r from-blue-400 to-gray-400 drop-shadow-glow">
+  <nav className="flex items-center justify-between p-4 relative h-15 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800 shadow-lg shadow-blue-500">
     <Link href="/" className="text-xl font-bold text-gray-800">
     <Image
           src="/qualityfirstroofinglogo.webp"
