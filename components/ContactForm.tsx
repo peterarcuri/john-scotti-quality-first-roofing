@@ -61,27 +61,27 @@ const ContactForm = () => {
           type="text"
           required
           placeholder="Your Name"
-          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-950 placeholder-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <input
           name="email"
           type="email"
           required
           placeholder="Your Email"
-          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-950 placeholder-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <input
           name="phone"
           type="tel"
           required
           placeholder="Your Phone Number"
-          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-950 placeholder-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <textarea
           name="message"
           rows={4}
           placeholder="How can we help?"
-          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full p-3 border border-gray-300 rounded bg-gray-50/60 text-blue-950 placeholder-blue-950 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button
           type="submit"

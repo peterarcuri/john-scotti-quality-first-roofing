@@ -5,12 +5,12 @@ import {
   ClerkProvider,
 } from '@clerk/nextjs';
 import Navbar from "@/components/Navbar";
-import { Alice } from 'next/font/google';
+import { Roboto as RobotoFont } from 'next/font/google';
 
-const alice = Alice({
+const roboto = RobotoFont({
   weight: '400',
   subsets: ['latin'],
-  variable: '--font-alice',
+  variable: '--font-roboto',
 });
 
 const geistSans = Geist({
@@ -35,9 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en" className={alice.variable}>
+    <html lang="en" className={roboto.variable}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${alice.variable} font-alice antialiased`}
+         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <Navbar />
         {children}
