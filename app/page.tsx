@@ -134,7 +134,7 @@ export default function Home() {
 
 
 
-<section className="relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800">
+<section className="relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-800 to-gray-800">
   <div className="max-w-screen-xl mx-auto">
     <h3 className="text-2xl text-gray-200 font-bold mb-10">Our Services</h3>
 

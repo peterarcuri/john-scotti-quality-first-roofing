@@ -45,7 +45,7 @@ export default function LeadTable() {
       <h2 className="text-xl font-semibold mb-4">Total Leads: {leads.length}</h2>
       <table className="w-full border border-gray-300">
         <thead>
-          <tr className="bg-teal-600 text-gray-100 text-100">
+          <tr className="bg-teal-600 text-gray-300 text-100">
             <th className="p-2 border">Name</th>
             <th className="p-2 border">Email</th>
             <th className="p-2 border">Phone</th>
@@ -56,11 +56,11 @@ export default function LeadTable() {
         <tbody>
           {leads.map((lead) => (
             <tr key={lead.id}>
-              <td className="p-2 border">{lead.name}</td>
-              <td className="p-2 border">{lead.email}</td>
-              <td className="p-2 border">{lead.phone}</td>
-              <td className="p-2 border">{lead.message || '-'}</td>
-              <td className="p-2 border">
+              <td className="p-2 border text-gray-300">{lead.name}</td>
+              <td className="p-2 border text-gray-300">{lead.email}</td>
+              <td className="p-2 border text-gray-300">{lead.phone}</td>
+              <td className="p-2 border text-gray-300">{lead.message || '-'}</td>
+              <td className="p-2 border text-gray-300">
                 {new Date(lead.createdAt).toLocaleString()}
               </td>
             </tr>
