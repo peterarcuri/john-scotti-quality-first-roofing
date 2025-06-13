@@ -111,16 +111,19 @@ export default function Home() {
 
 <section className="relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800">
   {/* Aurora Effect */}
-  <div className="absolute inset-0 -z-10 overflow-hidden">
-    <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-400 opacity-30 blur-3xl rounded-full mix-blend-lighten animate-pulse" />
+  {/* <div className="absolute inset-0 -z-10 overflow-hidden">
+    <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-red-400 opacity-100 blur-3xl rounded-full mix-blend-lighten animate-pulse" />
     <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-gray-400 opacity-20 blur-2xl rounded-full mix-blend-lighten animate-pulse" />
     <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-blue-800 opacity-20 blur-3xl rounded-full mix-blend-lighten animate-pulse" />
-  </div>
+  </div> */}
 
   {/* Content */}
   <div className="relative max-w-4xl mx-auto text-gray-300">
-    <h2 className="text-[2.1rem] font-bold mb-4">Why Choose John Scotti?</h2>
-    <p className="mb-4 text-[1.2rem]">
+    <div className="relative z-10 margin-bottom: 20px bg-gradient-to-r from-gray-400/20 to-blue-600/20 p-6 rounded-lg max-w-2xl mx-auto shadow-md shadow-blue-500">
+    <h2 className="text-[2.4rem] font-bold mb-4">Why Choose John Scotti?</h2>
+    </div>
+   
+    <p className="mt-12 mb-4 margin-mt-50px text-[1.2rem]">
       With over 20 years of experience, John Scotti is a local roofing expert providing reliable and affordable services throughout Citrus County, FL.
     </p>
     <p className="text-lg">
@@ -130,40 +133,61 @@ export default function Home() {
 </section>
 
 
+
 <section className="relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800">
-  {/* Aurora Effect */}
-  <div className="absolute inset-0 -z-10 overflow-hidden">
-    <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-400 opacity-30 blur-3xl rounded-full mix-blend-lighten animate-pulse" />
-    <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-gray-400 opacity-20 blur-2xl rounded-full mix-blend-lighten animate-pulse" />
-    <div className="absolute bottom-0 right-1/4 w-[700px] h-[700px] bg-blue-800 opacity-20 blur-3xl rounded-full mix-blend-lighten animate-pulse" />
-  </div>
+  <div className="max-w-screen-xl mx-auto">
+    <h3 className="text-2xl text-gray-200 font-bold mb-10">Our Services</h3>
 
-  <div className="max-w-7xl mx-auto">
-    <h3 className="text-2xl text-gray-200 font-bold mb-10 text-center">Our Services</h3>
-
-    <ul className="flex justify-between gap-4 text-gray-200 text-sm md:text-base overflow-x-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
       {[
-        { label: "Roof Repair & Replacement", image: "/servicesRoofimage.webp", alt: "Roof repair & replacement image" },
-        { label: "Storm Damage Restoration", image: "/servicesStormDamageimage.webp", alt: "Storm damage Restoration image" },
-        { label: "Gutter Installation", image: "/servicesGutterimage.webp", alt: "Gutter installation image" },
-        { label: "Siding & Exterior Upgrade", image: "/servicesSidingImage.webp", alt: "Siding & exterior upgrade image" },
-        { label: "Energy Efficient Roofing", image: "/servicesEnergyEffImage.webp", alt: "Energy efficient roofing image" },
-      ].map(({ label, image, alt }) => (
-        <li key={label} className="flex flex-col items-center w-1/5 min-w-[180px] group">
-          <p className="mb-2 font-semibold">{label}</p>
-          <div className="relative w-full pt-[100%] rounded-xl overflow-hidden transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:brightness-110 before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/10 before:to-white/0 before:opacity-0 group-hover:before:opacity-40 before:transition-opacity">
-            <Image
+        {
+          label: "Roof Repair & Replacement",
+          image: "/servicesRoofimage.webp",
+        },
+        {
+          label: "Storm Damage Restoration",
+          image: "/servicesStormDamageimage.webp",
+        },
+        {
+          label: "Gutter Installation",
+          image: "/servicesGutterimage.webp",
+        },
+        {
+          label: "Siding & Exterior Upgrade",
+          image: "/servicesSidingImage.webp",
+        },
+        {
+          label: "Energy Efficient Roofing",
+          image: "/servicesEnergyEffImage.webp",
+        },
+      ].map(({ label, image }, idx) => (
+        <div
+          key={idx}
+          className="group relative overflow-hidden rounded-lg border border-gray-800 bg-blue-950 shadow-[0_0_15px] shadow-blue-700/30 transition-transform duration-300 hover:scale-105"
+        >
+          {/* Image Container */}
+          <div className="relative h-40 overflow-hidden">
+            <img
               src={image}
-              alt={alt}
-              fill
-              className="object-cover rounded-xl"
+              alt={label}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
+            {/* Glare Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
           </div>
-        </li>
+
+          {/* Text Content */}
+          <div className="p-4">
+            <h4 className="text-sm font-semibold text-gray-200">{label}</h4>
+          </div>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>
 </section>
+
+
+
 
 
 
