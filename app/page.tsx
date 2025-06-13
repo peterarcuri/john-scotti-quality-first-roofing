@@ -142,23 +142,23 @@ export default function Home() {
       {[
         {
           label: "Roof Repair & Replacement",
-          image: "/servicesRoofimage.webp",
+          image: "/services_roof_image.webp",
         },
         {
           label: "Storm Damage Restoration",
-          image: "/servicesStormDamageimage.webp",
+          image: "/services_storm_damage.webp",
         },
         {
           label: "Gutter Installation",
-          image: "/servicesGutterimage.webp",
+          image: "/services_gutter_image.webp",
         },
         {
           label: "Siding & Exterior Upgrade",
-          image: "/servicesSidingimage.webp",
+          image: "/services_siding_image.webp",
         },
         {
           label: "Energy Efficient Roofing",
-          image: "/servicesEnergyEfficientRoofimage.webp",
+          image: "/services_energy_eff.webp",
         },
       ].map(({ label, image }, idx) => (
         <div
