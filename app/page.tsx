@@ -154,11 +154,11 @@ export default function Home() {
         },
         {
           label: "Siding & Exterior Upgrade",
-          image: "/servicesSidingImage.webp",
+          image: "/servicesSidingimage.webp",
         },
         {
           label: "Energy Efficient Roofing",
-          image: "/servicesEnergyEffImage.webp",
+          image: "/servicesEnergyEfficientRoofimage.webp",
         },
       ].map(({ label, image }, idx) => (
         <div
