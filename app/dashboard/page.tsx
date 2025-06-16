@@ -31,8 +31,8 @@ export default async function DashboardPage() {
 
   // --- Render authorized content ---
   return (
-    <div className="p-6 relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800">
-      <h1 className="text-3xl font-bold mb-4">Lead Dashboard</h1>
+    <div className="p-6 relative py-16 px-6 text-center">
+      <h1 className="text-3xl font-bold mb-4 text-gray-300">Lead Dashboard</h1>
       <LeadTable />
     </div>
   );

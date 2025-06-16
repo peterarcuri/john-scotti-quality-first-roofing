@@ -1,10 +1,12 @@
+// app/admin/leads/page.tsx
+
 'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 interface Lead {
-  id: string;
+  id: number;
   name: string;
   email: string;
   phone: string;
@@ -30,7 +32,7 @@ export default function LeadTable() {
         setLeads(data);
       } catch (err: unknown) {
         console.error('Failed to fetch leads:', err);
-        setError(String(err))
+        setError(String(err));
       }
     };
 
@@ -42,11 +44,13 @@ export default function LeadTable() {
   }
 
   return (
-    <div className="overflow-x-auto">
-      <h2 className="text-xl font-semibold mb-4 text-gray-300">Total Leads: {leads.length}</h2>
-      <table className="w-full border border-gray-300 bg-gradient-to-br from-blue-950 via-blue-950 to-gray-800 shadow-md shadow-blue-500">
+    <div className="overflow-x-auto px-4 py-6">
+      <h2 className="text-3xl font-semibold mb-4 text-gray-300">
+        Total Leads: {leads.length}
+      </h2>
+      <table className="w-full border border-gray-300 bg-gradient-to-br from-blue-900 via-blue-950 to-gray-800 shadow-lg shadow-blue-500">
         <thead>
-          <tr className="bg-teal-800 text-gray-350 text-100">
+          <tr className="bg-teal-800 text-gray-300">
             <th className="p-2 border">Name</th>
             <th className="p-2 border">Email</th>
             <th className="p-2 border">Phone</th>
@@ -57,8 +61,9 @@ export default function LeadTable() {
         <tbody>
           {leads.map((lead) => (
             <tr key={lead.id}>
-              <td className="p-2 border text-blue-400 underline cursor-pointer">
-                <Link href={`/leads/${lead.id}`}>{lead.name}</Link></td>  
+              <td className="p-2 border text-teal-600 underline">
+                <Link href={`/leads/${lead.id}`}>{lead.name}</Link>
+              </td>
               <td className="p-2 border text-gray-300">{lead.email}</td>
               <td className="p-2 border text-gray-300">{lead.phone}</td>
               <td className="p-2 border text-gray-300">{lead.message || '-'}</td>

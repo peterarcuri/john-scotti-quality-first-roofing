@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const Navbar = () => (
-  <nav className="flex items-center justify-between p-4 relative h-15 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800 shadow-lg shadow-blue-500">
+  <nav className="flex items-center justify-between p-4 relative h-15 bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800 shadow-md shadow-blue-500">
     <Link href="/" className="text-xl font-bold text-gray-800">
     <Image
           src="/qualityfirstroofinglogo.webp"
@@ -27,12 +27,12 @@ const Navbar = () => (
         <UserButton afterSignOutUrl="/" />
         <Link
           href="/dashboard"
-          className="bg-teal-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Dashboard
         </Link>
         <SignOutButton>
-          <button className="ml-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+          <button className="ml-2 bg-red-700 text-white px-4 py-2 rounded hover:bg-red-600">
             Sign Out
           </button>
         </SignOutButton>

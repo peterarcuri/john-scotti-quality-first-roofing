@@ -194,7 +194,7 @@ export default function Home() {
 
       <section><MapClientWrapper /></section>
 
-      <section className="relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800">
+      <section id="contact" className="relative w-full py-16 px-6 text-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-950 to-gray-800">
   {/* Aurora Effect */}
   <div className="absolute inset-0 -z-10 overflow-hidden">
     <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-blue-400 opacity-30 blur-3xl rounded-full mix-blend-lighten animate-pulse" />
