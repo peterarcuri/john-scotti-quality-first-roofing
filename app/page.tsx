@@ -167,7 +167,7 @@ export default function Home() {
         >
           {/* Image Container */}
           <div className="relative h-40 overflow-hidden">
-            <img
+            <Image
               src={image}
               alt={label}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
