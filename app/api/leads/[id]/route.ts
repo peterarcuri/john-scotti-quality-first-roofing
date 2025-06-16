@@ -4,7 +4,7 @@ import { prisma } from '@/lib/prisma'; // Adjust if needed
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  params: Record<string, string>
 ) {
   const leadId = parseInt(params.id, 10);
 
