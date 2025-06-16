@@ -4,9 +4,9 @@ import { prisma } from '@/lib/prisma'; // Adjust if needed
 
 export async function GET(
   req: NextRequest,
-  context: { params: { id: string } }
+  { params }: { params: Record<string, string> }
 ) {
-  const leadId = parseInt(context.params.id, 10);
+  const leadId = parseInt(params.id, 10);
 
   if (isNaN(leadId)) {
     return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
