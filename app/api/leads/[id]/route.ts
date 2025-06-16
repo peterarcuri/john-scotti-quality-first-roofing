@@ -1,10 +1,10 @@
 // app/api/leads/[id]/route.ts
-import { NextResponse, NextRequest } from 'next/server';
-import { prisma } from '@/lib/prisma'; // Adjust if needed
+import { NextRequest, NextResponse } from 'next/server';
+import { prisma } from '@/lib/prisma';
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: Record<string, string> }
+  { params }: { params: { id: string } }
 ) {
   const leadId = parseInt(params.id, 10);
 
@@ -24,9 +24,6 @@ export async function GET(
     return NextResponse.json(lead);
   } catch (error) {
     console.error('[LEAD_FETCH_ERROR]', error);
-    return NextResponse.json(
-      { error: 'Failed to retrieve lead' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to retrieve lead' }, { status: 500 });
   }
 }
