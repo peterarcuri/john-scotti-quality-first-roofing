@@ -1,10 +1,10 @@
 // app/api/leads/[id]/route.ts
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { prisma } from '@/lib/prisma'; // Adjust if needed
 
 export async function GET(
-  req: Request,
-  params: { id: string }
+  req: NextRequest,
+  { params }: { params: { id: string } }
 ) {
   const leadId = parseInt(params.id, 10);
 
