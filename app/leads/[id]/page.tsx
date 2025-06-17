@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-
 interface Lead {
   id: number;
   name: string;
@@ -12,11 +11,13 @@ interface Lead {
 }
 
 interface LeadDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function LeadDetailPage({ params }: LeadDetailPageProps) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/leads/${params.id}`, {
+  const { id } = await params;
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/leads/${id}`, {
     cache: 'no-store',
   });
 
