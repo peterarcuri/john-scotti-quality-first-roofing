@@ -15,6 +15,7 @@ interface LeadDetailPageProps {
 }
 
 export default async function LeadDetailPage({ params }: LeadDetailPageProps) {
+  console.log('Rendering LeadDetailPage with params:', params);
   const { id } = await params;
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/leads/${id}`, {
