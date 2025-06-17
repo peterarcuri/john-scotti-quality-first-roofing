@@ -12,7 +12,13 @@ interface Lead {
   createdAt: string;
 }
 
-export default async function LeadDetailPage({ params }: { params: { id: string } }) {
+type LeadDetailPageProps = {
+  params: {
+    id: string;
+  };
+}
+
+export default async function LeadDetailPage({ params }: LeadDetailPageProps) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || ''}/api/leads/${params.id}`, {
     cache: 'no-store',
   });
