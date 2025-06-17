@@ -1,7 +1,6 @@
-// app/leads/[id]/page.tsx
-
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { GetServerSideProps } from 'next';
 
 interface Lead {
   id: number;
@@ -12,10 +11,8 @@ interface Lead {
   createdAt: string;
 }
 
-type LeadDetailPageProps = {
-  params: {
-    id: string;
-  };
+interface LeadDetailPageProps {
+  params: { id: string };
 }
 
 export default async function LeadDetailPage({ params }: LeadDetailPageProps) {
@@ -49,3 +46,14 @@ export default async function LeadDetailPage({ params }: LeadDetailPageProps) {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { params } = context;
+  const id = params?.id;
+
+  return {
+    props: {
+      params: { id },
+    },
+  };
+};
